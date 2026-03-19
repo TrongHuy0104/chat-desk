@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Vortex } from "@/components/ui/vortex";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,10 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html
+    className="no-scrollbar"
       lang="en"
-      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${inter.variable} bg-[#050509] min-h-screen flex flex-col p-0 text-zinc-100 antialiased font-sans`}>
+        <div className="fixed inset-0 -z-20 pointer-events-none">
+          <Vortex backgroundColor="transparent" particleCount={500} baseHue={220} className="w-full h-full" />
+        </div>
+        <div className="absolute inset-0 bg-linear-to-t from-[#050509] via-transparent to-transparent opacity-80 pointer-events-none"/>
+        
+        <div className="relative z-10 flex flex-col min-h-screen">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
