@@ -1,9 +1,12 @@
 "use client";
 
+import { useUser } from "@/hooks/useUser";
 import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
+    const { email, loading } = useUser()
+
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         // Only handle internal hash links
         const href = e.currentTarget.href;
@@ -40,12 +43,29 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <Link href={"/api/auth"} className="text-xs font-medium text-zinc-400 hover:text-white transition-colors">
-                        Sign In
-                    </Link>
-                    <Link href={"/api/auth"} className="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-zinc-200 transition-colors">
-                        Get Started
-                    </Link>
+                    {
+                        loading ? (
+                            <div className="w-8 h-8 rounded-full bg-white/10 animate-pulse"></div>
+                        ) : email ? (
+                            <div className="flex items-center gap-3">
+                                <Link href={"/dashboard"} className="text-sm font-medium text-black bg-white px-4 py-2 rounded-full hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2">
+                                    Dashboard
+                                </Link>
+                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                                    <span className="text-xs font-medium text-white/90">{email[0].toUpperCase()}</span>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="flex items-center gap-3">
+                                <Link href={"/api/auth"} className="text-xs font-medium text-zinc-400 hover:text-white transition-colors">
+                                    Sign In
+                                </Link>
+                                <Link href={"/api/auth"} className="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-zinc-200 transition-colors">
+                                    Get Started
+                                </Link>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </nav>

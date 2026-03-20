@@ -87,7 +87,7 @@ export default function Hero() {
 
                                 <div className="flex w-full flex-col items-start mt-5">
                                     <div className="flex max-w-[85%] gap-3 flex-row">
-                                        <div className="size-8 rounded-full flex items-center justify-center overflow-hidden mb-2">
+                                        <div className="size-8 shrink-0 rounded-full flex items-center justify-center overflow-hidden mb-2">
                                             <Image src={'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="Support Agent" width={40} height={40} className="size-full object-cover"/>
                                         </div>
                                         <div className="p-4 rounded-2xl text-sm leading-relaxed shadow-sm bg-white text-zinc-900 rounded-tl-sm">
