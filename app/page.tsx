@@ -1,10 +1,10 @@
-import Navbar from "@/components/ui/landing/nav";
-import Hero from "@/components/ui/landing/hero";
-import SocialProof from "@/components/ui/landing/social";
-import Features from "@/components/ui/landing/features";
-import Integration from "@/components/ui/landing/integration";
-import Pricing from "@/components/ui/landing/pricing";
-import Footer from "@/components/ui/landing/footer";
+import Navbar from "@/components/landing/nav";
+import Hero from "@/components/landing/hero";
+import SocialProof from "@/components/landing/social";
+import Features from "@/components/landing/features";
+import Integration from "@/components/landing/integration";
+import Pricing from "@/components/landing/pricing";
+import Footer from "@/components/landing/footer";
 
 export default function Page() {
   return (
