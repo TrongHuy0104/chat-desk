@@ -1,3 +1,4 @@
+import Sidebar from "@/components/dashboard/sidebar";
 import { cookies } from "next/headers";
 
 export const metadata = {
@@ -13,8 +14,13 @@ export default async function DashboardLayout({ children }: { children: React.Re
          antialiased text-zinc-100 selection:bg-zinc-800 flex">
             {metadataCookie?.value ? (
                 <>
-                    {/* <Sidebar /> */}
-                    {children}
+                    <Sidebar />
+                    <div className="flex flex-1 flex-col md:ml-64 relative min-h-screen transition-all duration-300">
+                        {/* <Header /> */}
+                        <main className="flex-1">
+                            {children}
+                        </main>
+                    </div>
                 </>
             ) : (
                 children
